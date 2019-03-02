@@ -27,6 +27,15 @@ Once you have nodejs installed, open command prompt/terminal window.<br/>
 $ node -v // make sure, this command comes back with a node version<br/>
 $ npm -v // make sure, this command comes back with a npm version<br/><br/>
 
+<h2>How to Install NodeJS on ChromeOS</h2>
+# First run<br/>
+$ sudo apt-get update<br/>
+# and then if needed<br/>
+$ sudo apt-get install curl gnupg -y<br/>
+# or nodejs version 11<br/>
+$ curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -<br/>
+$ sudo apt-get install -y nodejs<br/><br/>
+<h2>Install Angular CLI</h2>
 $ npm install -g @angular/cli<br/>
 $ mkdir app<br/>
 $ cd app<br/>
