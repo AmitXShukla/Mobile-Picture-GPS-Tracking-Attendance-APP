@@ -53,6 +53,31 @@ $ ng g c shared/login --spec=false --flat=true<br/>
 $ ng g c shared/signup --spec=false --flat=true<br/>
 $ ng g c product/attendance --spec=false --flat=true<br/><br/>
 
+<h2> Firebase Database Rules</h2>
+// helper functions<br/>
+    function isDocOwner(){<br/>
+    // assuming document has a field author which is uid<br/>
+    // Only the authenticated user who authored the document can read or write<br/>
+    	return request.auth.uid == resource.data.author;<br/>
+      // This above read query will fail<br/>
+    // The query fails even if the current user actually is the author of every story document.<br/>
+    //  The reason for this behavior is that when Cloud Firestore applies your security rules, <br/>
+    //  it evaluates the query against its potential result set,<br/>
+    //   not against the actual properties of documents in your database. <br/>
+    //   If a query could potentially include documents that violate your security rules, <br/>
+    //   the query will fail.<br/>
+    //   on your client app, make sure to include following<br/>
+    //   .where("author", "==", this.afAuth.auth.currentUser.uid)<br/>
+    }<br/>
+    function isSignedIn() {<br/>
+    // check if user is signed in<br/>
+          return request.auth.uid != null;<br/>
+    }<br/>
+    function isAdmin() {<br/>
+    return get(/databases/$(database)/documents/attendanceusers/<br/>
+    $(request.auth.uid)).data.isAdmin == true;<br/>
+    }<br/>
+    
 videos !!<br/>
 Setup Angular environment<br/>
 Setup Angular Materials<br/>
