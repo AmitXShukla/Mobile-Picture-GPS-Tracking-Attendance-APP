@@ -54,6 +54,18 @@ $ ng g c shared/signup --spec=false --flat=true<br/>
 $ ng g c product/attendance --spec=false --flat=true<br/><br/>
 
 <h2> Firebase Database Rules</h2>
+service cloud.firestore {<br/>
+  match /databases/{database}/documents {<br/><br/>
+  
+   match /attendance/{document} {<br/>
+   allow write: if isSignedIn();<br/>
+   allow read, update: if isDocOwner() || isAdmin();<br/>
+   }<br/><br/>
+    
+  match /attendanceusers/{document} {<br/>
+   allow read: if isSignedIn();<br/>
+   }<br/>
+  }<br/><br/>
 // helper functions<br/>
     function isDocOwner(){<br/>
     // assuming document has a field author which is uid<br/>
