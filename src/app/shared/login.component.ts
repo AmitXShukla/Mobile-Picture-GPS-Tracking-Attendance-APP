@@ -5,8 +5,7 @@ import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   socialAuth: boolean = false; // show Google and FB Sign in only when social auth is enabled
