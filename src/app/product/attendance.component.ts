@@ -4,8 +4,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-attendance',
-  templateUrl: './attendance.component.html',
-  styleUrls: ['./attendance.component.css']
+  templateUrl: './attendance.component.html'
 })
 export class AttendanceComponent implements OnInit {
   attendanceSaved: boolean = false;
