@@ -1,4 +1,7 @@
-## Please give a Star * to this repository if you like this project.
+```diff
++ if you like this project, Please consider,
+- following me on GitHub & a generous STAR * to this repository.
+```
 <h2>Mobile Picture, GPS Tracking Attendance App</h2>
 <h4>A Mobile GPS, Picture Attendance App for storing Employee, Asset Picture Attendance with GPS Locations.</h4>
 <h2>Objective</h2>
